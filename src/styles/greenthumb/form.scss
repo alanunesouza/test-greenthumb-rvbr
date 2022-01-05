@@ -1,0 +1,35 @@
+.section-form {
+  background-color: $white;
+}
+
+form {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  
+
+  .question {
+    display: flex;
+    flex-direction: column;
+    margin: 32px;
+
+    label {
+      margin: 12px 0 32px 0;
+      color: $grey;
+      font-size: 0.875rem;
+    }
+
+    img {
+      width: 75px;
+      height: 75px;
+    }
+
+    img[alt="Wateringcan"] {
+      width: 103px;
+      -moz-transform: scale(-1, -1);
+      -o-transform: scale(-1, -1);
+      -webkit-transform: scale(-1, -1);
+      transform: scale(-1, 1);
+    }
+  }
+}

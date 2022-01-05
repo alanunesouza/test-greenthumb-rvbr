@@ -1,0 +1,41 @@
+header {
+  background: url("/../public/images/hero/mobile/mobile-plantperson.png") no-repeat  center /cover;
+  background-position: bottom;
+  background-size: 276px 234px;
+  height: 600px;
+  background-color: $greenLight;
+  position: relative;  
+  padding-bottom: 12px;
+  padding-left: 20px;
+  background-origin: content-box;
+  z-index: 0;
+}
+
+
+.overlaping-content {
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 32px;
+
+  h1 {
+    color: $white;
+    font-size: 40px;
+  }
+}
+
+.overlaping-image {
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  
+  img {
+    width: 320px;
+    height: 412px;
+  }
+}

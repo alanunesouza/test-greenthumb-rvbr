@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Front End Test - Greenthumb</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="" rel="stylesheet">
+    <link rel="stylesheet" href="/main.48b3db1d.css">
+  <script src="/main.48b3db1d.js"></script></head>
+
+  <body>
+    <header>
+      <div class="overlaping-content">
+        <img src="/logo-white.2b6e82ae.svg" alt="Greenthumb">
+        <h1>Find your next green friend</h1>
+        <img src="/arrow-down.b30bb547.svg" alt="Arrow Down">
+      </div>
+
+      <div class="overlaping-image">        
+        <img class="image-plantperson" src="/mobile-leaves.24ea2b91.png" alt="Greenthumb">
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <form>
+          <div class="question">
+            <img src="/sun.350097f6.png" alt="Sun">
+            <label for="sun">
+              <strong>1.</strong> Set the amount of <strong>sunlight</strong> your plant will get.
+            </label>
+
+            <dropdown-component data="[&quot;no&quot;, &quot;low&quot;, &quot;high&quot;]" name="sun" id="dropdown-sun"></dropdown-component>
+          </div>
+
+          <div class="question">
+            <img src="/wateringcan.e48d7cd8.png" alt="Wateringcan">
+            <label for="water">
+              <strong>2.</strong> How often do you want to <strong>water</strong> your plant?
+            </label>
+            <dropdown-component data="[&quot;regularly&quot;, &quot;daily&quot;, &quot;rarely&quot;]" name="water" id="dropdown-water"></dropdown-component>
+          </div>
+
+          <div class="question">
+            <img src="/dog.7a87cd90.png" alt="Dog">
+            <label for="pets">
+              <strong>3.</strong> Do you have pets? Do they <strong>chew</strong> plants?
+            </label>
+            <dropdown-component data="[&quot;true&quot;, &quot;false&quot;]" name="pets" id="dropdown-pets"></dropdown-component>
+          </div>
+        </form>
+      </section>
+
+      <section>
+        <div class="results-container">
+          <div class="no-results-content" id="no-results-content">
+            <h1 class="no-results-content title">No results yet…</h1>
+            <p class="no-results-content instructions">Use the filters above to find the plant that best fits your environment :)</p>
+            <img src="/no-results.86bd9012.png" alt="No Results">
+          </div>
+
+          <div class="results-content hidden" id="results-content">
+            <img src="/pick.cc7b836d.png" alt="Pick">
+            <h1 class="results-content title">Our picks for you</h1>
+
+            <div id="cards" class="carousel">
+              <!-- <card-component data='{
+                "id": 4,
+                "name": "Ficus lyrata",
+                "sun": "high",
+                "water": "regularly",
+                "url": "https://storage.googleapis.com/front-br-challenges.appspot.com/green-thumb-v2/plants/ficus-lyrata.png",
+                "price": 30,
+                "toxicity": false,
+                "staff_favorite": true
+              }' ></card-component>
+              <card-component data='{
+                "id": 4,
+                "name": "Ficus lyrata",
+                "sun": "high",
+                "water": "regularly",
+                "url": "https://storage.googleapis.com/front-br-challenges.appspot.com/green-thumb-v2/plants/ficus-lyrata.png",
+                "price": 30,
+                "toxicity": false,
+                "staff_favorite": true
+              }' ></card-component> -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/src.e31bb0bc.js"></script>
+    <script src="/dropdown.08071cae.js"></script>
+    <script src="/card.c1a2b515.js"></script>
+  </body>
+</html>

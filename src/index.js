@@ -1,12 +1,16 @@
-
-
-
+const rootElement = document.documentElement;
 const dropdownSun = document.getElementById('dropdown-sun')
 const dropdownWater = document.getElementById('dropdown-water')
 const dropdownPets = document.getElementById('dropdown-pets')
 const carousel = document.getElementById('cards')
+const scrollToTopBtn = document.getElementById("scroll-to-top-btn");
 
-
+const scrollToTop = () => {
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 
 const getResults = () => {
   const sunValue = dropdownSun.getAttribute('value')
@@ -35,6 +39,7 @@ const getResults = () => {
     });
   } else {
     noResultsContainer.removeAttribute('class', 'hidden')
+    resultsContainer.setAttribute('class', 'results-content hidden')
     carousel.innerHTML = ''
   }
 
@@ -44,9 +49,10 @@ const setWidthCarousel = () => {
   carousel.setAttribute('style', `width: ${window.innerWidth - 45}px`)
 }
 
-
+window.onload = setWidthCarousel
 window.addEventListener('resize', setWidthCarousel)
 
+scrollToTopBtn.addEventListener("click", scrollToTop);
 dropdownSun.addEventListener('value', getResults)
 dropdownWater.addEventListener('value', getResults)
 dropdownPets.addEventListener('value', getResults)

@@ -1,6 +1,3 @@
-import logoIcon from '../../public/images/icons/logo-white.svg';
-
-
 class Header extends HTMLElement {
   constructor() {
     super();

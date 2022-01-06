@@ -16,6 +16,7 @@ class Card extends HTMLElement {
     this.shadow.innerHTML = `
       <style>
         .card-container {
+          position: relative;
           display: inline-block;
           background: #FFFFFF;
           box-shadow: 0px 28px 38px rgba(0, 0, 0, 0.0925754);
@@ -31,6 +32,7 @@ class Card extends HTMLElement {
           width: 187px;
           height: 221px;
           object-fit: contain;
+          margin: 1rem 0;
         }
         .card-details {
           display: flex;
@@ -45,7 +47,7 @@ class Card extends HTMLElement {
         .card-details img {
           width: 20px;
           height: 25px;
-          object-fit: contain;
+          object-fit: scale-down;
         }
         .card-details div {
           display: flex;
@@ -60,6 +62,7 @@ class Card extends HTMLElement {
         }
 
         .staff-favorite {
+          position: absolute;
           background: #75BC97;
           border-radius: 0 10px 10px 0;
           width: 130px;
@@ -88,9 +91,9 @@ class Card extends HTMLElement {
         <div>
           <span>${currencyPtBr(this.data.price)}</span>
           <span>
-            <img src="/images/icons/${this.data.toxicity ? 'toxicity' : 'pet'}.svg" alt="sun" />
+            <img src="/images/icons/${this.data.toxicity ? 'toxic' : 'pet'}.svg" alt="sun" />
             ${this.data.sun && `<img src="/images/icons/${this.data.sun}-sun.svg" alt="sun" />`}
-            <img src="/images/icons/water-${this.data.water}.svg" alt="water" />
+            <img src="/images/icons/${this.data.water}-water.svg" alt="water" />
           </span>
         </div>
       </div>

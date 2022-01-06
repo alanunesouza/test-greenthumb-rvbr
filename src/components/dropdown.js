@@ -11,7 +11,6 @@ class Dropdown extends HTMLElement {
     e.stopPropagation();
     const dropDownEl = this.shadow.querySelector('.dropdown-el');
     dropDownEl.classList.toggle('expanded');
-    this.shadow.querySelector(`#${e.target.htmlFor}`).checked = true;
     this.setAttribute('value', e.target.htmlFor);
     this.dispatchEvent(new CustomEvent('value', { detail: e.target.htmlFor }));
   }

@@ -1,3 +1,5 @@
+window.scrollTo({ top: 0, behavior: "smooth" });
+
 const rootElement = document.documentElement;
 const dropdownSun = document.getElementById('dropdown-sun')
 const dropdownWater = document.getElementById('dropdown-water')
@@ -5,12 +7,18 @@ const dropdownPets = document.getElementById('dropdown-pets')
 const carousel = document.getElementById('cards')
 const scrollToTopBtn = document.getElementById("scroll-to-top-btn");
 const loadingEl = document.getElementById('loading')
+const buttonScrollToForm = document.getElementById('button-scroll-to-form')
 
 const scrollToTop = () => {
   rootElement.scrollTo({
     top: 0,
     behavior: "smooth"
   });
+}
+
+const scrollToForm = () => {
+  const form = document.querySelector('form')
+  form.scrollIntoView({ behavior: 'smooth' });
 }
 
 const setLoading = (value) => loadingEl.setAttribute('class', value === true ? '' : 'hidden')
@@ -23,8 +31,9 @@ const getResults = () => {
   const values = [sunValue, waterValue, petsValue];
   const isAnEmptyField = values.some(value => value === "default" || value === null);
 
-  const resultsContainer = document.getElementById('results-content')
-  const noResultsContainer = document.getElementById('no-results-content')
+  const resultsContainer = document.querySelector('.results-container')
+  const resultsContent = document.getElementById('results-content')
+  const noResultsContent = document.getElementById('no-results-content')
   
   if (!isAnEmptyField) {
     setLoading(true);
@@ -37,8 +46,8 @@ const getResults = () => {
       .then(function(data) {
         if (data.length) {
 
-          noResultsContainer.setAttribute('class', 'hidden')
-          resultsContainer.setAttribute('class', 'results-content')
+          noResultsContent.setAttribute('class', 'hidden')
+          resultsContent.setAttribute('class', 'results-content')
           
           carousel.innerHTML = `${data.map((item, index) => `
             <card-component
@@ -49,20 +58,23 @@ const getResults = () => {
         }
       })
       .catch(() => {
-        alert('Ocorreu um erro ao buscar os resultados. Tente novamente mais tarde.')
+        alert('Ocorreu um erro ao buscar os resultados. Tente novamente.')
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+      });
   } else {
-    noResultsContainer.removeAttribute('class', 'hidden')
-    resultsContainer.setAttribute('class', 'results-content hidden')
+    noResultsContent.removeAttribute('class', 'hidden')
+    resultsContent.setAttribute('class', 'results-content hidden')
     carousel.innerHTML = ''
   }
 
 }
 
 const setWidthCarousel = () => {
-  const resultsContainerWidth = document.querySelector('.content').offsetWidth;
-  const smallerWidth = resultsContainerWidth < window.innerWidth ? resultsContainerWidth : window.innerWidth
+  const resultsContentWidth = document.querySelector('.content').offsetWidth;
+  const smallerWidth = resultsContentWidth < window.innerWidth ? resultsContentWidth : window.innerWidth
 
   carousel.setAttribute('style', `width: ${smallerWidth - 45}px`)
 }
@@ -70,7 +82,8 @@ const setWidthCarousel = () => {
 window.onload = setWidthCarousel
 window.addEventListener('resize', setWidthCarousel)
 
+buttonScrollToForm.addEventListener('click', scrollToForm);
 scrollToTopBtn.addEventListener("click", scrollToTop);
-dropdownSun.addEventListener('value', getResults)
-dropdownWater.addEventListener('value', getResults)
-dropdownPets.addEventListener('value', getResults)
+dropdownSun.addEventListener('value', getResults);
+dropdownWater.addEventListener('value', getResults);
+dropdownPets.addEventListener('value', getResults);

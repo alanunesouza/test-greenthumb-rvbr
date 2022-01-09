@@ -10,7 +10,7 @@ class Header extends HTMLElement {
 
   render() {
     this.shadow.innerHTML = `
-      <img src=\"../../public/images/icons/logo-white.svg\" alt="Greenthumb" />
+      <img src="../../public/images/icons/logo-white.svg" alt="Greenthumb" />
     `
   }
 }

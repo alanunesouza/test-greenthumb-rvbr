@@ -3,14 +3,11 @@
 }
 
 form {
-  display: flex;
+  @include flexContainer(row, center, unset);
   flex-flow: wrap;
-  justify-content: center;
-  
 
   .question {
-    display: flex;
-    flex-direction: column;
+    @include flexContainer(column, unset, unset);
     margin: 32px;
 
     label {

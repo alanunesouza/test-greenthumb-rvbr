@@ -1,8 +1,5 @@
 .results-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexContainer(column, center, center);
   background-color: $backgroundGrey;
   min-height: 23rem;
   text-align: center;
@@ -10,12 +7,10 @@
 }
 
 .no-results-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexContainer(column, center, center);
   width: 100%;
   max-width: 100%;
+  margin-bottom: 2rem;
   
   &.title{
     font-size: 2.8125rem;
@@ -39,9 +34,7 @@
 }
 
 .results-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include flexContainer(column, center, unset);
   text-align: left;
   margin-bottom: 2rem;
 
@@ -99,15 +92,13 @@
 }
 
 .scroll-to-top-btn {
-  display: flex;
+  @include flexContainer(row, center, center);
   width: 100%;
   border: 1px solid $greenDark;
   box-sizing: border-box;
   border-radius: 25px;
   font-size: 1rem;
   color: $greenDark;
-  align-items: center;
-  justify-content: center;
   padding: 12px;
   margin-bottom: 2rem;
 

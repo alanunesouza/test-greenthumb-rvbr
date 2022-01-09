@@ -9,8 +9,14 @@ class Dropdown extends HTMLElement {
   expand(e) {
     e.preventDefault();
     e.stopPropagation();
+    const actualValue = this.getAttribute('value');
+
     const dropDownEl = this.shadow.querySelector('.dropdown-el');
     dropDownEl.classList.toggle('expanded');
+    
+    if (actualValue === e.target.htmlFor) { return }
+    
+    this.shadow.querySelector(`#${e.target.htmlFor}`).checked = true;
     this.setAttribute('value', e.target.htmlFor);
     this.dispatchEvent(new CustomEvent('value', { detail: e.target.htmlFor }));
   }

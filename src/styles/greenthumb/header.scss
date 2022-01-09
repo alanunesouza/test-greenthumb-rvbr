@@ -4,7 +4,6 @@ header {
   background-size: 276px 234px;
   height: 600px;
   background-color: $greenLight;
-  position: relative;  
   padding-bottom: 12px;
   background-origin: content-box;
   z-index: 0;
@@ -17,7 +16,6 @@ header {
     background-position: 70% 50%;
   }
 }
-
 
 .overlaping-content {
   z-index: 3;

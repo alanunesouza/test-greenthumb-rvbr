@@ -4,6 +4,7 @@ const dropdownWater = document.getElementById('dropdown-water')
 const dropdownPets = document.getElementById('dropdown-pets')
 const carousel = document.getElementById('cards')
 const scrollToTopBtn = document.getElementById("scroll-to-top-btn");
+const loadingEl = document.getElementById('loading')
 
 const scrollToTop = () => {
   rootElement.scrollTo({
@@ -11,6 +12,8 @@ const scrollToTop = () => {
     behavior: "smooth"
   });
 }
+
+const setLoading = (value) => loadingEl.setAttribute('class', value === true ? '' : 'hidden')
 
 const getResults = () => {
   const sunValue = dropdownSun.getAttribute('value')
@@ -24,19 +27,31 @@ const getResults = () => {
   const noResultsContainer = document.getElementById('no-results-content')
   
   if (!isAnEmptyField) {
+    setLoading(true);
     const url = `https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sunValue}&water=${waterValue}&pets=${petsValue}`
 
-    fetch(url).then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      noResultsContainer.setAttribute('class', 'hidden')
-      resultsContainer.setAttribute('class', 'results-content')
+    fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.length) {
 
-      carousel.innerHTML = `${data.map(item => `<card-component data='${JSON.stringify(item)}'></card-component>`).join('')}`
-
-    }).catch(function() {
-      alert('Ocorreu um erro ao buscar os resultados. Tente novamente mais tarde.')
-    });
+          noResultsContainer.setAttribute('class', 'hidden')
+          resultsContainer.setAttribute('class', 'results-content')
+          
+          carousel.innerHTML = `${data.map((item, index) => `
+            <card-component
+              data='${JSON.stringify(item)}'
+              class='item item-${index + 1}'
+              ${window.innerWidth < 768 ? 'mobile' : ''}
+            ></card-component>`).join('')}`
+        }
+      })
+      .catch(() => {
+        alert('Ocorreu um erro ao buscar os resultados. Tente novamente mais tarde.')
+      })
+      .finally(() => setLoading(false));
   } else {
     noResultsContainer.removeAttribute('class', 'hidden')
     resultsContainer.setAttribute('class', 'results-content hidden')
@@ -46,7 +61,10 @@ const getResults = () => {
 }
 
 const setWidthCarousel = () => {
-  carousel.setAttribute('style', `width: ${window.innerWidth - 45}px`)
+  const resultsContainerWidth = document.querySelector('.content').offsetWidth;
+  const smallerWidth = resultsContainerWidth < window.innerWidth ? resultsContainerWidth : window.innerWidth
+
+  carousel.setAttribute('style', `width: ${smallerWidth - 45}px`)
 }
 
 window.onload = setWidthCarousel

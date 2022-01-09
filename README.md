@@ -1,16 +1,52 @@
-# basic-test-boilerplate
-Aqui você encontrará um boilerplate simples, que será disponibilizado para os candidatos do processo de front da Redventures Brasil.
----
+<h1 align="center">
+  <img alt="redventures" title="redventures" src="./public/images/RV-logotype.png" />
+</h1>
 
-## Como rodar localmente
+<blockquote align="center">Teste Front-end - GreenThumb - Red Ventures Brazil</blockquote>
 
-Antes de tudo, você precisa precisará ter o nodejs instalado em sua máquina, após isso basta rodar: 
+<p align="center">
+  <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#hammer-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-autor">Autor</a>
+</p>
 
-`yarn && yarn start` ou `npm install && npm start`
+## :rocket: Sobre o desafio
 
-## Como gerar a URL de preview
+Aplicação web com javascript sem utilização de frameworks, com formulário, resultado, fetch e responsididade.
 
-Para gerar a URL de preview ou "fazer o deploy", basta rodar o comando `yarn deploy` ou `npm deploy`. Esse script já ira automaticamente fazer o build e subir os arquivos estáticos para o Surge.sh, como nas imagens abaixo:
+## :hammer: Instalação
 
-![Screen Shot 2021-10-22 at 17 43 58](https://user-images.githubusercontent.com/92953864/138524410-480ed8d8-a567-4ba4-aa51-1b4337ce2ada.png)
-![Screen Shot 2021-10-22 at 17 45 44](https://user-images.githubusercontent.com/92953864/138524435-8724d434-1dac-4664-a5a1-9f7b32556f8c.png)
+### Pré Requisitos
+
+```
+git
+node
+npm
+```
+
+clone o repositório:
+
+```
+git clone https://github.com/alanunesouza/test-greenthumb-rvbr
+```
+
+instale as dependências:
+
+```
+npm install
+```
+
+
+### Ambiente de desenvolvimento
+
+Agora basta rodar o comando abaixo para subirmos o projeto:
+
+```
+npm start
+```
+
+Com isso, o ambiente deve estar disponível em sua máquina, no endereço http://localhost:1234.
+
+## :memo: Autor
+
+Criado por Alan Nunes em 2021.

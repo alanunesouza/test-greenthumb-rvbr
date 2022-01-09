@@ -12,6 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "lint-staged": "^12.1.7",
     "parcel": "1.12.4",
     "surge": "^0.23.0"
   },

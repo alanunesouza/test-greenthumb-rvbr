@@ -14,6 +14,7 @@
     "surge": "^0.23.0"
   },
   "devDependencies": {
+    "eslint": "^8.6.0",
     "parcel-bundler": "^1.6.1",
     "sass": "^1.43.3"
   },

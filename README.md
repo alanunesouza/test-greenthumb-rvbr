@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="redventures" title="redventures" src="./public/images/RV-logotype.png" />
+  <img alt="redventures" title="redventures" src="./public/images/icons/favicon.ico" />
 </h1>
 
 <blockquote align="center">Teste Front-end - GreenThumb - Red Ventures Brazil</blockquote>

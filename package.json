@@ -9,7 +9,9 @@
     "postbuild": "cp -r public/* dist/",
     "deploy": "yarn build && surge ./dist",
     "postinstall": "husky install",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src --max-warnings=0",
+    "type-check": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "lint-staged": "^12.1.7",

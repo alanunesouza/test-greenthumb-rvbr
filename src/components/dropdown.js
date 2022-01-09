@@ -6,6 +6,11 @@ class Dropdown extends HTMLElement {
     this.shadow = this.attachShadow({mode: 'open'});
   }
 
+  setValue(value) {
+    this.shadow.querySelector(`#${value}`).checked = true;
+    this.setAttribute('value', value);
+  }
+
   expand(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -15,9 +20,8 @@ class Dropdown extends HTMLElement {
     dropDownEl.classList.toggle('expanded');
     
     if (actualValue === e.target.htmlFor) { return }
-    
-    this.shadow.querySelector(`#${e.target.htmlFor}`).checked = true;
-    this.setAttribute('value', e.target.htmlFor);
+
+    this.setValue(e.target.htmlFor);
     this.dispatchEvent(new CustomEvent('value', { detail: e.target.htmlFor }));
   }
 
@@ -34,6 +38,13 @@ class Dropdown extends HTMLElement {
     const dropDownEl = this.shadow.querySelector('.dropdown-el');
     dropDownEl.addEventListener('click', this.expand.bind(this))
     document.addEventListener('click', this.close.bind(this))
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const valueInUrl = urlParams.get(this.name);
+
+    if (valueInUrl) {
+      this.setValue(valueInUrl);
+    }
   }
 
   render() {    

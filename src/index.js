@@ -24,9 +24,11 @@ const scrollToForm = () => {
 const setLoading = (value) => loadingEl.setAttribute('class', value === true ? '' : 'hidden')
 
 const getResults = () => {
-  const sunValue = dropdownSun.getAttribute('value')
-  const waterValue = dropdownWater.getAttribute('value')
-  const petsValue = dropdownPets.getAttribute('value')
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const sunValue = dropdownSun.getAttribute('value') || urlParams.get('sun')
+  const waterValue = dropdownWater.getAttribute('value') || urlParams.get('water')
+  const petsValue = dropdownPets.getAttribute('value') || urlParams.get('pets')
   
   const values = [sunValue, waterValue, petsValue];
   const isAnEmptyField = values.some(value => value === "default" || value === null);
@@ -38,6 +40,7 @@ const getResults = () => {
   if (!isAnEmptyField) {
     setLoading(true);
     const url = `https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sunValue}&water=${waterValue}&pets=${petsValue}`
+    window.history.pushState('', '', `?sun=${sunValue}&water=${waterValue}&pets=${petsValue}`);
 
     fetch(url)
       .then(function(response) {
@@ -79,7 +82,10 @@ const setWidthCarousel = () => {
   carousel.setAttribute('style', `width: ${smallerWidth - 45}px`)
 }
 
-window.onload = setWidthCarousel
+window.onload = () => {
+  getResults()
+  setWidthCarousel()
+}
 window.addEventListener('resize', setWidthCarousel)
 
 buttonScrollToForm.addEventListener('click', scrollToForm);

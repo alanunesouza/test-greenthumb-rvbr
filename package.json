@@ -7,7 +7,9 @@
     "start": "parcel src/index.html --out-dir dist --open",
     "build": "parcel build src/index.html",
     "postbuild": "cp -r public/* dist/",
-    "deploy": "yarn build && surge ./dist"
+    "deploy": "yarn build && surge ./dist",
+    "postinstall": "husky install",
+    "prepare": "husky install"
   },
   "dependencies": {
     "parcel": "1.12.4",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "eslint": "^8.6.0",
+    "husky": "^7.0.4",
     "parcel-bundler": "^1.6.1",
     "sass": "^1.43.3"
   },

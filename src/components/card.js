@@ -7,7 +7,7 @@ class Card extends HTMLElement {
     this.shadow = this.attachShadow({ mode: 'open' });
   }
 
-  addClassesOfCard = (containerEl) => {
+  addClassesOfCard(containerEl) {
     containerEl.getElementsByClassName('staff-favorite')[0].classList.add('bigger')
     containerEl.getElementsByClassName('image-container')[0].classList.add('bigger')
     containerEl.getElementsByClassName('card-details')[0].classList.add('row')
@@ -17,7 +17,7 @@ class Card extends HTMLElement {
     containerEl.getElementsByClassName('attributes')[0].classList.add('bigger')
   }
 
-  removeClassesOfCard = (containerEl) => {
+  removeClassesOfCard(containerEl) {
     containerEl.getElementsByClassName('staff-favorite')[0].classList.remove('bigger')
     containerEl.getElementsByClassName('image-container')[0].classList.remove('bigger')
     containerEl.getElementsByClassName('card-details')[0].classList.remove('row')
@@ -28,7 +28,7 @@ class Card extends HTMLElement {
   }
 
 
-  checkSizeCard = () => {
+  checkSizeCard() {
     const isMobile = window.innerWidth < 768;
     const cardsEl = document.querySelectorAll("#cards > card-component.item");
 

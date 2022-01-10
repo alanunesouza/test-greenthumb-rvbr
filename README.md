@@ -12,7 +12,7 @@
 
 ## :rocket: Sobre o desafio
 
-Aplicação web com javascript sem utilização de frameworks, com formulário, resultado, fetch e responsididade.
+Aplicação web com javascript sem utilização de frameworks. Layout baseado no [Figma do Desafio](https://www.figma.com/file/Socuz9DYBg9WklbQIWITWq/greenthumb-pocket-v2?node-id=0%3A297), contendo formulário, resultado, animações e responsividade.
 
 ## :hammer: Instalação
 
